@@ -278,45 +278,96 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>Los commits son la &#xFA;nica forma de tener un registro de los cambios. Pero las ramas amplifican mucho m&#xE1;s el potencial de Git.</li>
 </ul>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#sec1git"> SEC1<br>
+<li><a href="#introducci%C3%B3ngit"> INTRODUCCI&#xD3;N<br>
 </a>
 <ul>
-<li><a href="#a-href-target_blanka"><br>
+<li><a href="#caracter%C3%ADsticas-de-git"> Caracter&#xED;sticas de Git.<br>
 </a></li>
-<li><a href="#a-href-target_blanka-1"><br>
+<li><a href="#directorios-en-git"> Directorios en Git<br>
 </a></li>
-<li><a href="#a-href-target_blanka-2"><br>
+<li><a href="#configuraciones-de-git"> Configuraciones de Git<br>
+</a></li>
+<li><a href="#iniciar-un-repositorio-en-git"> Iniciar un Repositorio en Git<br>
 </a></li>
 </ul>
 </li>
-<li><a href="#sec2git"> SEC2<br>
+<li><a href="#estados-para-localizar-los-archivos-en-gitgit"> ESTADOS PARA LOCALIZAR LOS ARCHIVOS EN GIT<br>
+</a></li>
+<li><a href="#ciclo-de-vida-o-estados-de-los-archivos-en-git"> CICLO DE VIDA O ESTADOS DE LOS ARCHIVOS EN GIT<br>
+</a></li>
+<li><a href="#estados-de-los-archivos-en-el-repositorio-local"> ESTADOS DE LOS ARCHIVOS EN EL REPOSITORIO LOCAL<br>
 </a>
 <ul>
-<li><a href="#a-href-target_blanka-3"><br>
+<li><a href="#tracked"> Tracked<br>
 </a></li>
-<li><a href="#a-href-target_blanka-4"><br>
+<li><a href="#staged"> Staged<br>
 </a></li>
-<li><a href="#a-href-target_blanka-5"> </a></li>
+<li><a href="#unstaged"> Unstaged<br>
+</a></li>
+<li><a href="#untracked"> Untracked<br>
+</a></li>
 </ul>
 </li>
-<li><a href="#sec3git"> SEC3<br>
+<li><a href="#comandos-para-mover-archivos-entre-los-estados-de-gitgit"> COMANDOS PARA MOVER ARCHIVOS ENTRE LOS ESTADOS DE GIT<br>
 </a>
 <ul>
-<li><a href="#a-href-target_blanka-6"><br>
+<li><a href="#git-status"> git status<br>
 </a></li>
-<li><a href="#a-href-target_blanka-7"><br>
+<li><a href="#git-add"> git add<br>
 </a></li>
-<li><a href="#a-href-target_blanka-8"> </a></li>
+<li><a href="#git-nombre-del-archivo-o-carpeta"> git nombre-del-archivo-o-carpeta<br>
+</a></li>
+<li><a href="#git-reset-head"> git reset HEAD<br>
+</a></li>
+<li><a href="#git-commit"> git commit<br>
+</a></li>
+<li><a href="#git-rm"> git rm<br>
+</a></li>
+<li><a href="#git-rm-cached"> git rm --cached<br>
+</a></li>
+<li><a href="#git-rm-force"> git rm --force<br>
+</a></li>
 </ul>
 </li>
-<li><a href="#sec4git"> SEC4<br>
+<li><a href="#comandos-sobre-archivos-de-git"> COMANDOS SOBRE ARCHIVOS DE GIT<br>
 </a>
 <ul>
-<li><a href="#a-href-target_blanka-9"><br>
+<li><a href="#git-log"> git log<br>
 </a></li>
-<li><a href="#a-href-target_blanka-10"><br>
+<li><a href="#gif-diff"> gif diff<br>
 </a></li>
-<li><a href="#a-href-target_blanka-11"> </a></li>
+<li><a href="#git-reset"> git reset<br>
+</a></li>
+<li><a href="#git-reset-hard"> git reset --hard<br>
+</a></li>
+<li><a href="#git-reset-soft"> git  reset --soft<br>
+</a></li>
+</ul>
+</li>
+<li><a href="#comandos-para-github"> COMANDOS PARA GITHUB<br>
+</a></li>
+<li><a href="#ramas-en-gitgit"> RAMAS EN GIT<br>
+</a>
+<ul>
+<li><a href="#master"> Master<br>
+</a></li>
+<li><a href="#checkout"> Checkout<br>
+</a></li>
+<li><a href="#merge"> Merge<br>
+</a></li>
+<li><a href="#commits"> Commits<br>
+</a></li>
+<li><a href="#est%C3%A1ndares"> Est&#xE1;ndares<br>
+</a>
+<ul>
+<li><a href="#rama-master"> Rama Master<br>
+</a></li>
+<li><a href="#rama-development"> Rama Development<br>
+</a></li>
+<li><a href="#rama-hotfix-errores-en-caliente"> Rama Hotfix. Errores en Caliente<br>
+</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#glosario-gitgit"> GLOSARIO. Git<br>
@@ -536,6 +587,17 @@ Cada vez que se hace un commit al repositorio se esta creando una nueva versi&#x
 
 <p>volvemos a la versi&#xF3;n anterior pero lo que se tenga en el area de Staged sigue en Staged</p>
 <pre data-role="codeBlock" data-info class="language-"><code>git  reset --soft
+</code></pre><h2 class="mume-header" id="comandos-para-github">COMANDOS PARA GITHUB</h2>
+
+<p>&#x2026;or create a new repository on the command line</p>
+<pre data-role="codeBlock" data-info class="language-"><code>git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin https://github.com/nelsonjava/md.git
+git push -u origin master
+</code></pre><p>&#x2026;or push an existing repository from the command line</p>
+<pre data-role="codeBlock" data-info class="language-"><code>git remote add origin https://github.com/nelsonjava/md.git
+git push -u origin master
 </code></pre><h2 class="mume-header" id="ramas-en-gitgit"><a href="#git">RAMAS EN GIT</a></h2>
 
 <p>Cualquier sistema de control de versiones moderno tiene alg&#xFA;n mecanismo para soportar el uso de ramas.</p>
